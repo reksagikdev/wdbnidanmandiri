@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WD BNI & MANDIRI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+    *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Inter', sans-serif;
+    letter-spacing:0.3px;
+
+}
+	
+	body {
+    min-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: url("bg/gambar8.jpg") center/cover no-repeat;
+    
+    }
+
+html, body {
+    
+    margin: 0;
+    padding: 0;
+    height: auto;
+
+}
+
+.title{
+    color:white;
+    font-size:24px;
+    margin-bottom:12px;
+    letter-spacing:2px;
+    text-align:center;
+    text-shadow:0 4px 12px rgba(0,0,0,.4);
+
+    position:relative;
+    padding-bottom:5px;
+}
+
+.title::after{
+    content:"";
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:250px;
+    height:3px;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #60a5fa,
+        #ffffff,
+        #60a5fa,
+        transparent
+    );
+
+    box-shadow:
+        0 0 10px rgba(96,165,250,0.7),
+        0 0 18px rgba(255,255,255,0.35);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(4px);
+    z-index:0;
+	pointer-events: none;
+}
+    
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+
+    margin: 40px auto;
+    padding: 26px 22px 18px;
+
+    border-radius: 25px;
+    background: url("bg/gambar1.jpg")center;
+    border: 2px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+    color: #ffffff;
+	transition: all 0.3s ease;
+
+    text-align: center;
+
+    overflow: visible;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .input-box {
+    background: url("bg/gambar26.jpg")left;
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+    color: #ffffff;
+        border-radius: 15px;
+        padding: 2px;
+        margin-bottom: 15px;
+		
+    }
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+    color: #ffffff;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    input::placeholder {
+        color: #64748b;
+    }
+
+    .result-box {
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 10px;
+    margin: 0 auto 20px;
+    width: 250px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* horizontal center */
+    justify-content: center; /* vertical center */
+    }
+
+    .result-label {
+        font-size: 14px;
+        color: #94a3b8;
+    }
+
+    .result-value {
+        font-size: 22px;
+        font-weight: bold;
+        color: #93c5fd;
+        margin-top: 5px;
+    }
+
+
+    .buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    flex-wrap:nowrap;
+}
+
+@media (max-width: 600px){
+    .buttons{
+        flex-direction: column;
+    }
+
+    .btn{
+        width: 100%;
+        max-width: 260px;
+		position: relative;
+    overflow: hidden;
+    }
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:25%;
+    height:100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+
+    transform: translateX(-150%) skewX(-20deg);
+
+    animation: shineMove 3.5s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes shineMove{
+    0%{
+        transform: translateX(-150%) skewX(-20deg);
+    }
+    100%{
+        transform: translateX(250%) skewX(-20deg);
+    }
+}
+
+    .btn {
+    width: 180px;        
+    height: 55px;
+     padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    will-change: transform;
+    box-sizing: border-box;
+	background: linear-gradient(135deg, #1e3a8a, #2563eb, #60a5fa);
+
+    box-shadow: 0 6px 18px rgba(37,99,235,0.35);
+    transition: all 0.25s ease;
+	 position: relative;
+    overflow: hidden;
+    }
+
+    .btn1 {
+        background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
+		text-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+
+    .btn2 {
+        background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
+		text-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-wrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.toast{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #1e40af;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+
+    opacity: 0;
+    transition: 0.25s ease;
+    pointer-events: none;
+    white-space: nowrap;
+
+    z-index: 10;
+}
+
+.btn-wrapper{
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+}
+
+.toast.show{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+	
+	.btn.success {
+    background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80);
+    box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+}
+	
+	/* © 2026 | BY YOGIK */
+.brand{
+    
+    margin-top: 20px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 50px rgba(96,165,250,0.8);
+    font-size: 10px;
+    font-weight: bold;
+	
+}
+
+.spacer{
+    height: 250px;
+}
+	
+.action-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 16px;
+	
+
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.7);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+    color: #ffffff;
+}
+	
+	h2 {
+    color: #ffffff;
+	 margin-top: -10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+	
+	textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    resize: none;
+    height: auto;
+    overflow-y: hidden;
+    padding: 6px 0;
+    line-height: 1.5;
+}
+
+textarea::placeholder {
+    color: #64748b;
+    text-align: center;
+}
+
+.button-box{
+    margin-top: 20px;
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(2, 6, 23, 0.65);
+
+    border: 1px solid rgba(59, 130, 246, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(59,130,246,0.25),
+        inset 0 0 20px rgba(255,255,255,0.03);
+
+    backdrop-filter: blur(6px);
+}
+	
+.button-box:hover{
+    border-color: rgba(96,165,250,0.9);
+
+    box-shadow:
+        0 0 20px rgba(96,165,250,0.35),
+        inset 0 0 25px rgba(255,255,255,0.05);
+
+    transition: 0.3s;
+}
+
+.btn.success {
+    background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80) !important;
+    box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+    transform: scale(1.03);
+}
+	
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <h2 class="title">⚡CATAT WD BNI & MANDIRI⚡</h2>
+
+    <div class="input-box">
+        <textarea id="nominal" placeholder="Masukkan Data" rows="5"></textarea>
+    </div>
+
+    <div class="result-value" id="hasilText" style="white-space: pre-line;"></div>
+
+    <div class="button-box">
+
+<div class="buttons">
+
+    <div class="btn-wrapper">
+    <button class="btn btn1" onclick="copyIdNamaKet(this)">
+        COPY NAMA ID KET
+    </button>
+</div>
+
+<div class="btn-wrapper">
+    <button class="btn btn2" onclick="copyNominal(2500, this)">
+        COPY 2.500
+    </button>
+</div>
+
+<div class="btn-wrapper">
+    <button class="btn btn2" onclick="copyNominal(6500, this)">
+        COPY 6.500
+    </button>
+</div>
+</div>
+
+</div>
+
+<div class="brand">© 2026 | BY YOGIK</div>
+
+
+<script>
+const nominal = document.getElementById("nominal");
+
+function showToast(btn, text) {
+
+    const originalText = btn.dataset.original || btn.innerText;
+
+    btn.dataset.original = originalText;
+
+    btn.innerText = text;
+
+    btn.classList.add("success");
+
+    setTimeout(() => {
+        btn.innerText = originalText;
+        btn.classList.remove("success");
+    }, 1200);
+}
+
+function copyIdNamaKet(btn) {
+    const raw = document.getElementById("nominal").value.trim();
+
+    if (!raw) {
+        showToast(btn, "DATA KOSONG");
+        return;
+    }
+
+    const lines = raw.split("\n").map(x => x.trim()).filter(Boolean);
+
+    let id = "";
+    let ket = "";
+    let nama = "";
+
+    for (const line of lines) {
+
+        if (!id && /^[a-zA-Z0-9_]{3,}$/.test(line) && !/withdraw|deposit/i.test(line)) {
+            id = line;
+        }
+
+        if (/withdraw/i.test(line)) ket = "Withdraw";
+        if (/deposit/i.test(line)) ket = "Deposit";
+
+        if (/DANA|OVO|BANK/i.test(line) || line.includes(",")) {
+
+            if (line.includes(",")) {
+                const parts = line.split(",").map(x => x.trim());
+
+                for (let i = parts.length - 1; i >= 0; i--) {
+                    if (!/^\d+$/.test(parts[i])) {
+                        nama = parts[i];
+                        break;
+                    }
+                }
+
+            } else {
+                const words = line.split(/\s+/);
+
+                if (/DANA|OVO|BANK/i.test(words[0])) words.shift();
+                if (words.length && /^\d+$/.test(words[0])) words.shift();
+
+                nama = words.join(" ");
+            }
+        }
+    }
+
+    if (!id || !ket || !nama) {
+        showToast(btn, "FORMAT SALAH");
+        return;
+    }
+
+    const hasil = `${nama}\t${id}\t${ket}`;
+
+    navigator.clipboard.writeText(hasil)
+        .then(() => {
+            showToast(btn, "TERCOPY ✔");
+            btn.classList.add("success");
+
+            setTimeout(() => btn.classList.remove("success"), 1200);
+        })
+        .catch(() => showToast(btn, "GAGAL COPY"));
+}
+
+
+function copyNominal(adm, btn) {
+    const raw = document.getElementById("nominal").value;
+
+    if (!raw.trim()) {
+        showToast(btn, "NOMINAL KOSONG");
+        return;
+    }
+
+    const lines = raw.split("\n");
+
+    let nominalValue = null;
+
+    for (let line of lines) {
+        if (/withdraw/i.test(line)) {
+            const match = line.match(/\d{1,3}(?:,\d{3})+/g);
+
+            if (match && match.length > 0) {
+                nominalValue = parseInt(match[0].replace(/,/g, ""));
+                break;
+            }
+        }
+    }
+
+    if (!nominalValue || isNaN(nominalValue)) {
+        showToast(btn, "NOMINAL TIDAK ADA");
+        return;
+    }
+
+    const total = nominalValue + adm;
+
+    navigator.clipboard.writeText("-" + total)
+        .then(() => {
+            showToast(btn, "TERCOPY ✔");
+            btn.classList.add("success");
+
+            setTimeout(() => btn.classList.remove("success"), 1200);
+        })
+        .catch(() => showToast(btn, "GAGAL COPY"));
+}
+</script>
+</body>
+</html>
