@@ -4,60 +4,104 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WD BNI & MANDIRI</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-    *{
+*{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family: 'Inter', sans-serif;
-    letter-spacing:0.3px;
-
+    font-family:'Inter',sans-serif;
 }
-	
-	body {
-    min-height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background: url("bg/gambar33.jpg") center/cover no-repeat;
-    
-    }
 
-html, body {
-    
-    margin: 0;
-    padding: 0;
-    height: auto;
 
+html,body{
+    margin:0;
+    min-height:100vh;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top left, rgba(99,102,241,.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(34,211,238,.18), transparent 45%),
+    linear-gradient(135deg,#020617,#0b1220,#0f172a);
+}
+
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.02),
+        rgba(255,255,255,0)
+    );
+
+    z-index:0;
+    pointer-events:none;
+}
+
+.container{
+    width:92%;
+    max-width:860px;
+    margin:50px auto;
+    padding:26px;
+
+    background:rgba(8,12,24,.72);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(148,163,184,.12);
+    border-radius:26px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .title{
-    color:white;
-    font-size:24px;
-    margin-bottom:12px;
-    letter-spacing:2px;
     text-align:center;
-    text-shadow:0 4px 12px rgba(0,0,0,.4);
+
+    font-size:30px;
+    font-weight:800;
+
+    margin-bottom:25px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #60a5fa,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 
     position:relative;
-    padding-bottom:5px;
 }
 
 .title::after{
     content:"";
+
     position:absolute;
 
     left:50%;
-    bottom:0;
+    bottom:-10px;
 
     transform:translateX(-50%);
 
-    width:250px;
-    height:3px;
+    width:180px;
+    height:4px;
 
-    border-radius:10px;
+    border-radius:20px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         90deg,
         transparent,
         #60a5fa,
@@ -65,326 +109,301 @@ html, body {
         #60a5fa,
         transparent
     );
+}
 
+.input-box{
+    background:rgba(15,23,42,.65);
+    border:1px solid rgba(148,163,184,.12);
+    border-radius:18px;
+    padding:10px;
+    transition:.25s;
+}
+
+.input-box:focus-within{
+    border-color:#3b82f6;
+    box-shadow:0 0 0 4px rgba(59,130,246,.12);
+}
+
+
+textarea{
+    width:100%;
+    min-height:260px;
+    background:transparent;
+    border:none;
+    outline:none;
+    resize:none;
+
+    color:#e2e8f0;
+    font-size:15px;
+    line-height:1.7;
+    padding:14px;
+}
+
+
+textarea::placeholder{
+    color:#64748b;
+}
+
+textarea:focus{
     box-shadow:
-        0 0 10px rgba(96,165,250,0.7),
-        0 0 18px rgba(255,255,255,0.35);
+    0 0 0 4px rgba(96,165,250,.15);
+
+    border-radius:15px;
 }
 
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(4px);
-    z-index:0;
-	pointer-events: none;
-}
-    
-.container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 650px;
+.result-value{
+    margin-top:15px;
 
-    margin: 40px auto;
-    padding: 26px 22px 18px;
+    padding:15px;
 
-    border-radius: 25px;
-    background: url("bg/gambar33.jpg")center;
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    box-shadow: 0 0 12px rgba(59,130,246,0.25);
-    color: #ffffff;
-	transition: all 0.3s ease;
+    min-height:60px;
 
-    text-align: center;
+    border-radius:16px;
 
-    overflow: visible;
-    }
+    background:rgba(255,255,255,.03);
 
-    h2 {
-        margin-bottom: 20px;
-        font-weight: 500;
-    }
+    border:1px solid rgba(255,255,255,.06);
 
-    .input-box {
-    background: url("bg/gambar12.jpg")center;
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    box-shadow: 0 0 12px rgba(59,130,246,0.25);
-    color: #ffffff;
-        border-radius: 15px;
-        padding: 2px;
-        margin-bottom: 15px;
-		
-    }
+    color:#93c5fd;
 
-    input {
-        width: 100%;
-        border: none;
-        outline: none;
-        background: rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    box-shadow: 0 0 12px rgba(59,130,246,0.25);
-    color: #ffffff;
-        color: white;
-        font-size: 20px;
-        text-align: center;
-    }
-
-    input::placeholder {
-        color: #64748b;
-    }
-
-    .result-box {
-    background: rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    box-shadow: 0 0 12px rgba(59,130,246,0.25);
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 20px 10px;
-    margin: 0 auto 20px;
-    width: 250px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* horizontal center */
-    justify-content: center; /* vertical center */
-    }
-
-    .result-label {
-        font-size: 14px;
-        color: #94a3b8;
-    }
-
-    .result-value {
-        font-size: 22px;
-        font-weight: bold;
-        color: #93c5fd;
-        margin-top: 5px;
-    }
-
-
-    .buttons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-
-    flex-wrap:nowrap;
-}
-
-@media (max-width: 600px){
-    .buttons{
-        flex-direction: column;
-    }
-
-    .btn{
-        width: 100%;
-        max-width: 260px;
-		position: relative;
-    overflow: hidden;
-    }
-}
-
-.btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:25%;
-    height:100%;
-
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.15),
-        transparent
-    );
-
-    transform: translateX(-150%) skewX(-20deg);
-
-    animation: shineMove 3.5s linear infinite;
-
-    pointer-events: none;
-}
-
-@keyframes shineMove{
-    0%{
-        transform: translateX(-150%) skewX(-20deg);
-    }
-    100%{
-        transform: translateX(250%) skewX(-20deg);
-    }
-}
-
-    .btn {
-    width: 180px;        
-    height: 45px;
-     padding: 12px 16px;
-    border-radius: 12px;
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    font-weight: bold;
-    cursor: pointer;
-    color: #ffffff;
-    transition: all 0.2s ease;
-    will-change: transform;
-    box-sizing: border-box;
-	background: linear-gradient(135deg, #1e3a8a, #2563eb, #60a5fa);
-
-    box-shadow: 0 6px 18px rgba(37,99,235,0.35);
-    transition: all 0.25s ease;
-	 position: relative;
-    overflow: hidden;
-    }
-
-    .btn1 {
-        background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
-		text-shadow:0 4px 12px rgba(0,0,0,.4);
-    }
-
-    .btn2 {
-        background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
-		text-shadow:0 4px 12px rgba(0,0,0,.4);
-    }
-
-    .btn:hover {
-        transform: translateY(-2px);
-    }
-
-    .btn-wrapper{
-    position: relative;
-    display: inline-block;
-}
-
-.toast{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background: #1e40af;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-
-    opacity: 0;
-    transition: 0.25s ease;
-    pointer-events: none;
-    white-space: nowrap;
-
-    z-index: 10;
-}
-
-.btn-wrapper{
-    position: relative;
-    display: inline-block;
-    overflow: visible;
-}
-
-.toast.show{
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05);
-}
-	
-	.btn.success {
-    background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80);
-    box-shadow: 0 10px 25px rgba(34,197,94,0.4);
-}
-	
-.brand{
-    position:relative;
-    z-index:5;
-
-    margin-top:-28px;
-
-    text-align:center;
-
-    color:#ffffff;
-    font-size:10px;
+    font-size:22px;
     font-weight:700;
-
-    letter-spacing:.5px;
-
-    text-shadow:
-        0 1px 2px rgba(0,0,0,.6);
-}
-
-.spacer{
-    height: 250px;
-}
-	
-.action-box {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 16px;
-	
-
-    background: rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(59, 130, 246, 0.7);
-    box-shadow: 0 0 12px rgba(59,130,246,0.25);
-    color: #ffffff;
-}
-	
-	h2 {
-    color: #ffffff;
-	 margin-top: -10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(59,130,246,0.5);
-}
-	
-	textarea {
-    width: 100%;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    resize: none;
-    height: auto;
-    overflow-y: hidden;
-    padding: 6px 0;
-    line-height: 1.5;
-}
-
-textarea::placeholder {
-    color: #64748b;
-    text-align: center;
 }
 
 .button-box{
-    margin-top: 20px;
-    padding: 20px;
+    display:flex;
+    justify-content:center;
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    pointer-events:none;
+    transition:.35s ease;
+}
 
-    border-radius: 18px;
+.button-box.show{
+    opacity:1;
+    max-height:none;
+    overflow:visible;
+    margin-top:16px;
+    pointer-events:auto;
+}
 
-    background: rgba(2, 6, 23, 0.65);
+.buttons{
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
 
-    border: 1px solid rgba(59, 130, 246, 0.7);
+
+.btn-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.btn{
+    width:100%;
+    height:54px;
+
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.5px;
+
+    color:#fff;
+
+    transition:.25s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn .icon{
+    font-size:18px;
+}
+
+.btn::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.08);
+    opacity:0;
+    transition:.25s;
+}
+
+.btn:hover::after{opacity:1}
+
+.btn:hover{
+    transform:translateY(-2px);
 
     box-shadow:
-        0 0 15px rgba(59,130,246,0.25),
-        inset 0 0 20px rgba(255,255,255,0.03);
+        0 10px 25px rgba(0,0,0,.35),
+        0 0 18px rgba(96,165,250,.15);
 
-    backdrop-filter: blur(6px);
-}
-	
-.button-box:hover{
-    border-color: rgba(96,165,250,0.9);
-
-    box-shadow:
-        0 0 20px rgba(96,165,250,0.35),
-        inset 0 0 25px rgba(255,255,255,0.05);
-
-    transition: 0.3s;
+    filter:brightness(1.08);
 }
 
-.btn.success {
-    background: linear-gradient(135deg, #16a34a, #22c55e, #4ade80) !important;
-    box-shadow: 0 10px 25px rgba(34,197,94,0.4);
-    transform: scale(1.03);
+.btn.success{
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    ) !important;
+
+    color:#fff;
 }
+
+.btn1{
+    background:linear-gradient(
+        135deg,
+        #334155,
+        #475569
+    );
+
+    border:1px solid rgba(96,165,250,.18);
+}
+
+.btn2{
+    background:linear-gradient(
+        135deg,
+        #1e293b,
+        #334155
+    );
+
+    border:1px solid rgba(96,165,250,.18);
+}
+
+.brand{
+    margin-top:14px;
+
+    display:block;
+    width:fit-content;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    font-size:9px;
+
+    font-weight:600;
+    letter-spacing:0.6px;
+
+    color:rgba(255,255,255,0.9);
+
+    padding:2px 6px;   
+
+    border-radius:6px;
+
+    border:1px solid rgba(96,165,250,0.25);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+	text-shadow:
+    0 1px 2px rgba(0,0,0,0.8),
+    0 0 8px rgba(255,255,255,0.15);
+}
+
+@media(max-width:600px){
+    .container{
+        margin:18px;
+        padding:18px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
+
+.light{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(140px);
+    z-index:0;
+    pointer-events:none;
+}
+.light1{
+    width:260px;
+    height:260px;
+    background:#3b82f6;
+    opacity:.15;
+
+    top:-100px;
+    left:-100px;
+}
+
+.light2{
+    width:260px;
+    height:260px;
+    background:#22d3ee;
+    opacity:.10;
+
+    bottom:-100px;
+    right:-100px;
+}
+
+.header-box{
+    text-align:center;
+
+    margin-bottom:18px;
+
+    padding-top:10px;
+}
+
+.header-text{
+    font-size:42px;
+
+    font-weight:800;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+.header-subtitle{
+    color:#64748b;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    margin-top:5px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:40px;
+    font-weight:800;
+    letter-spacing:1px;
+
+    color:#e5e7eb;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.35);
+
+    margin-bottom:5px;
+}
+
+.hero p{
+    font-size:11px;
+    letter-spacing:5px;
+    color:#94a3b8;
+    margin-top:6px;
+}
+
 	
 </style>
 </head>
@@ -393,36 +412,43 @@ textarea::placeholder {
 <div class="overlay"></div>
 
 <div class="container">
-    <h2 class="title">⚡CATAT WD BNI & MANDIRI⚡</h2>
+    <div class="hero">
+    <h1>CATAT WD</h1>
+    <p>BNI & MANDIRI</p>
+</div>
+
+   
+
 
     <div class="input-box">
         <textarea id="nominal" placeholder="Masukkan Data" rows="5"></textarea>
     </div>
 
-    <div class="result-value" id="hasilText" style="white-space: pre-line;"></div>
+    
 
-    <div class="button-box">
+    <div class="button-box" id="buttonBox">
 
-<div class="buttons">
+    <div class="buttons">
 
-    <div class="btn-wrapper">
-    <button class="btn btn1" onclick="copyIdNamaKet(this)">
-        COPY NAMA ID KET
-    </button>
-</div>
+        <div class="btn-wrapper">
+            <button class="btn btn1" onclick="copyIdNamaKet(this)">
+                COPY NAMA ID
+            </button>
+        </div>
 
-<div class="btn-wrapper">
-    <button class="btn btn2" onclick="copyNominal(2500, this)">
-        COPY 2.500
-    </button>
-</div>
+        <div class="btn-wrapper">
+            <button class="btn btn2" onclick="copyNominal(2500, this)">
+                COPY 2.500
+            </button>
+        </div>
 
-<div class="btn-wrapper">
-    <button class="btn btn2" onclick="copyNominal(6500, this)">
-        COPY 6.500
-    </button>
-</div>
-</div>
+        <div class="btn-wrapper">
+            <button class="btn btn2" onclick="copyNominal(6500, this)">
+                COPY 6.500
+            </button>
+        </div>
+
+    </div>
 
 </div>
 
@@ -434,22 +460,34 @@ textarea::placeholder {
 
 <script>
 
+
+
 const nominal = document.getElementById("nominal");
+
+const buttonBox = document.getElementById("buttonBox");
+
+nominal.addEventListener("input", function(){
+
+    if(this.value.trim() !== ""){
+        buttonBox.classList.add("show");
+    }else{
+        buttonBox.classList.remove("show");
+    }
+
+});
 
 function showToast(btn, text) {
 
     const originalText = btn.dataset.original || btn.innerText;
-
     btn.dataset.original = originalText;
 
     btn.innerText = text;
-
     btn.classList.add("success");
 
     setTimeout(() => {
         btn.innerText = originalText;
         btn.classList.remove("success");
-    }, 1200);
+    }, 1000);
 }
 
 function copyIdNamaKet(btn) {
@@ -556,5 +594,8 @@ function copyNominal(adm, btn) {
         .catch(() => showToast(btn, "GAGAL COPY"));
 }
 </script>
+<div class="light light1"></div>
+<div class="light light2"></div>
+
 </body>
 </html>
